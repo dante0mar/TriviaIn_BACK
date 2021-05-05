@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -30,7 +29,7 @@ public class UserController {
         return userService.getUsers();
     }
 
-    @PostMapping
+    @PostMapping(path = "/signup")
     public UserModel saveUser(@RequestBody UserModel newUser){
         return userService.saveUser(newUser);
     }
@@ -40,10 +39,10 @@ public class UserController {
         return userService.getById(id);
     }
 
-    @GetMapping("/query")
+  /*  @GetMapping("/query")
     public ArrayList<UserModel> getUserByPriority(@RequestParam("priority") Integer priority){
         return userService.getByPriority(priority);
-    }
+    }*/
 
     @DeleteMapping(path = "/{id}")
     public String deleteById(@PathVariable("id") Long userId){
