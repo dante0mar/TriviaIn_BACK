@@ -1,6 +1,5 @@
 package com.in.trivia.triviain.repositories;
 
-import java.util.ArrayList;
 import java.util.Optional;
 
 import com.in.trivia.triviain.models.UserModel;
