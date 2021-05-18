@@ -15,6 +15,7 @@ public class UserService {
     
     @Autowired
     UserRepository userRepository;
+    
     @Autowired
     PasswordEncoder passwordEncoder;
 
@@ -30,6 +31,11 @@ public class UserService {
     public Optional<UserModel> getById(Long id){
         return userRepository.findById(id);
     }
+
+    public Optional<UserModel> getByUsername(String userName){
+        return userRepository.findByUserName(userName);
+    }
+
 
     public boolean deleteUser(Long userId){
         try{

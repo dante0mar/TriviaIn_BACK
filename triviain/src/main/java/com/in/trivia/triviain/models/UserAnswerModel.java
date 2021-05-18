@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user_answer")
-public class UserAnswer {
+public class UserAnswerModel {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

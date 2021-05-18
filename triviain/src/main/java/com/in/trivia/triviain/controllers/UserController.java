@@ -35,14 +35,9 @@ public class UserController {
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<UserModel> getUserById(@PathVariable("Id") Long id) {
+    public Optional<UserModel> getUserById(@PathVariable("id") Long id) {
         return userService.getById(id);
     }
-
-  /*  @GetMapping("/query")
-    public ArrayList<UserModel> getUserByPriority(@RequestParam("priority") Integer priority){
-        return userService.getByPriority(priority);
-    }*/
 
     @DeleteMapping(path = "/{id}")
     public String deleteById(@PathVariable("id") Long userId){

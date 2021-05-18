@@ -37,6 +37,7 @@ public class QuizModel {
 
     private String title;
     private Date creationDate;
+    private boolean isPublished;
     
     public Long getId() {
         return id;
@@ -74,6 +75,11 @@ public class QuizModel {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
-
+    public boolean isPublished() {
+        return isPublished;
+    }
+    public void setPublished(boolean isPublished) {
+        this.isPublished = isPublished;
+    }
     
 }
