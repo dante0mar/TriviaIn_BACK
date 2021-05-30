@@ -1,5 +1,7 @@
 package com.in.trivia.triviain.auth;
 
+import javax.validation.Valid;
+
 import com.in.trivia.triviain.models.UserModel;
 
 import org.springframework.http.HttpHeaders;
@@ -28,7 +30,7 @@ public class AuthApi {
 
 
     @PostMapping("/login")
-    public ResponseEntity<UserModel> login(@RequestBody UserModel request) {
+    public ResponseEntity<UserModel> login(@RequestBody @Valid UserModel request) {
         try {
             Authentication authenticate = authenticationManager
                 .authenticate(

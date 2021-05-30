@@ -35,8 +35,7 @@ public class QuizService {
         List<QuestionModel> toSaveList= newQuiz.getQuestions();
         newQuiz.setQuestions(List.of());
         QuizModel savedModel = quizRepository.save(addUserExtraDataToStore(newQuiz));
-        toSaveList.forEach(question->question.setQuiz(savedModel));
-        questionService.saveQuestions(toSaveList);
+        questionService.saveQuestions(toSaveList,savedModel);
         return savedModel;
     }
 

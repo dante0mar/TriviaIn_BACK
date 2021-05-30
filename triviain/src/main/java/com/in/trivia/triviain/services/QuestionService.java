@@ -1,12 +1,10 @@
 package com.in.trivia.triviain.services;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 import com.in.trivia.triviain.models.OptionModel;
 import com.in.trivia.triviain.models.QuestionModel;
+import com.in.trivia.triviain.models.QuizModel;
 import com.in.trivia.triviain.repositories.QuestionRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +24,9 @@ public class QuestionService {
         return questionRepository.save(newQuestion);
     }
 
-    public void saveQuestions(List<QuestionModel> questions){
+    public void saveQuestions(List<QuestionModel> questions,QuizModel savedQuizModel){
         questions.forEach(question->{
+            question.setQuiz(savedQuizModel);
             List<OptionModel> options = question.getOptions();
             question.setOptions(List.of());
             questionRepository.save(question);

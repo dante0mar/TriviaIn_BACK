@@ -3,6 +3,8 @@ package com.in.trivia.triviain.controllers;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import com.in.trivia.triviain.models.UserModel;
 import com.in.trivia.triviain.services.UserService;
 
@@ -30,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping(path = "/signup")
-    public UserModel saveUser(@RequestBody UserModel newUser){
+    public UserModel saveUser(@RequestBody @Valid UserModel newUser){
         return userService.saveUser(newUser);
     }
 

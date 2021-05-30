@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+import com.in.trivia.triviain.validators.ValidPassword;
 
 @Entity
 @Table(name="user")
@@ -16,10 +20,17 @@ public class UserModel {
     @Column(unique = true,nullable = false)
     private Long id;
     
+    @NotBlank(message = "Please, add a valid userName, it cannot be blank")
     private String userName;
+
+    @ValidPassword(message = "Invalid password, it should have at least 8 characters, 1 Upper case, 1 Lower case and one digit, also, not whitespaces")
     private String password;
+
     private Boolean active;
     private String roles;
+
+    @Email(message = "Email should be valid")
+    @NotBlank(message = "Please, add a valid userName, it cannot be blank")
     private String email;
 
 
